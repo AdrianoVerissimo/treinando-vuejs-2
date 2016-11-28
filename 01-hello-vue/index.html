@@ -11,8 +11,8 @@
 <body>
 
 <div id="app">
-  <p>{{ message }}</p>
-  <div v-if="seen">Este elemento sumirá definindo app.seen = false no console!</div>
+	<p>{{ message }}</p>
+	<div v-if="seen">Este elemento sumirá definindo app.seen = false no console!</div>
 </div>
 
 <div id="app2">
@@ -20,11 +20,16 @@
 </div>
 
 <div id="app4">
-  <ol>
-    <li v-for="todo in todos">
-      {{ todo.text }}
-    </li>
-  </ol>
+	<ol>
+		<li v-for="todo in todos">
+		  {{ todo.text }}
+		</li>
+	</ol>
+</div>
+
+<div id="app5">
+	<p>{{ message }}</p>
+	<button v-on:click="reverseMessage">Reverse Message</button>
 </div>
 
 <script>
@@ -55,6 +60,22 @@ var app4 = new Vue({
 		]
 
 	}
+});
+
+var app5 = new Vue({
+	el: '#app5',
+	data:
+	{
+		message: "Olá Vue.js!"
+	},
+	methods:
+	{
+		reverseMessage: function()
+		{
+			this.message = this.message.split('').reverse().join('');
+		}
+	}
+
 });
 
 </script>
